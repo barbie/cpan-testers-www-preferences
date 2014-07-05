@@ -1,9 +1,9 @@
-package CPAN::Testers::WWW::Prefs;
+package CPAN::Testers::WWW::Preferences;
 
 use warnings;
 use strict;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 1;
 
@@ -11,21 +11,21 @@ __END__
 
 =head1 NAME
 
-CPAN::Testers::WWW::Prefs - The CPAN Testers Reports Administration website
+CPAN::Testers::WWW::Preferences - The CPAN Testers Preferences website
 
 =head1 DESCRIPTION
 
-This distribution contains all the code used to run The CPAN Testers Reports
-Administration website.
+This distribution contains all the code used to run The CPAN Testers 
+Preferences website.
 
 =head1 VHOST FILES
 
-The CPAN Testers Reports Administration website is built on top of the 
-Labyrinth Website Management System. As such, the code to drive the website is
-contained within the Labyrinth and associated plugin prerequisites. In order 
-to define the website in terms of functionality, layout and style, the files
-within the './vhost' directory of this distribution should be installed into 
-your web server's virtual host directory.
+The CPAN Testers Preferences website is built on top of the Labyrinth Website
+Management System. As such, the code to drive the website is contained within
+the Labyrinth and associated plugin prerequisites. In order to define the 
+website in terms of functionality, layout and style, the files within the 
+'./vhost' directory of this distribution should be installed into your web 
+server's virtual host directory.
 
 Included in the distribution is a C<vhost.conf> file, which contains the 
 virtual host settings to implement the site using the Apache Web Server.
@@ -34,7 +34,7 @@ virtual host settings to implement the site using the Apache Web Server.
 
 L<Labyrinth>, 
 
-L<https://admin.cpantesters.org>
+L<https://prefs.cpantesters.org>
 
 =head1 AUTHOR
 

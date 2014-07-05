@@ -12,8 +12,8 @@ my $fh = IO::File->new('Changes','r')   or plan skip_all => "Cannot open Changes
 
 plan 'no_plan';
 
-use CPAN::Testers::WWW::Prefs;
-my $version = $CPAN::Testers::WWW::Prefs::VERSION;
+use CPAN::Testers::WWW::Preferences;
+my $version = $CPAN::Testers::WWW::Preferences::VERSION;
 
 my $latest = 0;
 while(<$fh>) {
