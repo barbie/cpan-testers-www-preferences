@@ -1,6 +1,6 @@
 {
-    "name": "CPAN-Testers-WWW-Prefs",
-    "version": "0.14",
+    "name": "CPAN-Testers-WWW-Preferences",
+    "version": "0.15",
     "abstract": "The CPAN Testers Preferences website",
     "author": [
         "Barbie (BARBIE) <barbie@cpan.org>"
@@ -52,17 +52,17 @@
     },
 
     "provides": {
-        "CPAN::Testers::WWW::Prefs": {
-            "file": "lib/CPAN/Testers/WWW/Prefs.pm",
-            "version": "0.14"
+        "CPAN::Testers::WWW::Preferences": {
+            "file": "lib/CPAN/Testers/WWW/Preferences.pm",
+            "version": "0.15"
         },
         "Labyrinth::Plugin::CPAN": {
             "file": "lib/Labyrinth/Plugin/CPAN.pm",
-            "version": "0.14"
+            "version": "0.15"
         },
         "Labyrinth::Plugin::CPAN::Preferences": {
             "file": "lib/Labyrinth/Plugin/CPAN/Preferences.pm",
-            "version": "0.14"
+            "version": "0.15"
         }
     },
     "no_index": {
@@ -72,10 +72,10 @@
     "resources": {
         "license": "http://www.perlfoundation.org/artistic_license_2_0",
         "homepage": "https://prefs.cpantesters.org",
-        "bugtracker": { "web": "http://rt.cpan.org/Public/Dist/Display.html?Name=CPAN-Testers-WWW-Prefs" },
+        "bugtracker": { "web": "http://rt.cpan.org/Public/Dist/Display.html?Name=CPAN-Testers-WWW-Preferences" },
         "repository": {
-            "url": "git://github.com/barbie/cpan-testers-www-prefs.git",
-            "web": "http://github.com/barbie/cpan-testers-www-prefs",
+            "url": "git://github.com/barbie/cpan-testers-www-preferences.git",
+            "web": "http://github.com/barbie/cpan-testers-www-preferences",
             "type": "git"
         }
     }

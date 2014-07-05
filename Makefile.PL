@@ -8,8 +8,8 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     AUTHOR              => 'Barbie <barbie@cpan.org>',
-    NAME                => 'CPAN::Testers::WWW::Prefs',
-    VERSION_FROM        => 'lib/CPAN/Testers/WWW/Prefs.pm',
+    NAME                => 'CPAN::Testers::WWW::Preferences',
+    VERSION_FROM        => 'lib/CPAN/Testers/WWW/Preferences.pm',
     ABSTRACT            => 'The CPAN Testers Preferences website',
     NO_META             => 1,
     PREREQ_PM => {

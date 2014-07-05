@@ -1,5 +1,5 @@
 Changes
-lib/CPAN/Testers/WWW/Prefs.pm
+lib/CPAN/Testers/WWW/Preferences.pm
 lib/Labyrinth/Plugin/CPAN.pm
 lib/Labyrinth/Plugin/CPAN/Preferences.pm
 LICENSE

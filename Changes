@@ -1,6 +1,10 @@
 Changes for the CPAN Testers Preferences website
 ================================================
 
+0.15	2014-07-05
+        - renamed to CPAN-Testers-WWW-Preferences.
+        - documentation fixes.
+
 0.14	2014-07-05
         - first release to CPAN.
         - renamed tables.
