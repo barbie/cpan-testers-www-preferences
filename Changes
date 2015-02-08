@@ -1,6 +1,8 @@
 Changes for the CPAN Testers Preferences website
 ================================================
 
+        - final fix for PAUSE authentication.
+
 0.18    2014-09-22
         - fixed license fields in META.json to be lists.
         - added documentation about the CPAN Testers Fund.
