@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.37, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.5.41, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: cpanprefs
 -- ------------------------------------------------------
--- Server version	5.5.37-0ubuntu0.12.04.1
+-- Server version	5.5.41-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,7 +27,7 @@ CREATE TABLE `access` (
   `accessname` varchar(255) DEFAULT NULL,
   `accesslevel` int(4) DEFAULT NULL,
   PRIMARY KEY (`accessid`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,7 +54,7 @@ CREATE TABLE `acls` (
   `userid` int(10) unsigned DEFAULT '0',
   `accessid` int(4) DEFAULT NULL,
   PRIMARY KEY (`aclid`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +63,9 @@ CREATE TABLE `acls` (
 
 INSERT INTO `acls` VALUES (1,1,9,0,5);
 INSERT INTO `acls` VALUES (2,1,1,0,1);
+INSERT INTO `acls` VALUES (3,1,0,5,4);
+INSERT INTO `acls` VALUES (4,1,0,4,4);
+INSERT INTO `acls` VALUES (5,1,0,3,5);
 
 --
 -- Table structure for table `folders`
@@ -73,18 +76,19 @@ DROP TABLE IF EXISTS `folders`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `folders` (
   `folderid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `foldername` varchar(255) DEFAULT NULL,
-  `ref` varchar(255) DEFAULT NULL,
+  `path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `parent` int(10) DEFAULT NULL,
-  PRIMARY KEY (`folderid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `accessid` int(10) NOT NULL DEFAULT '5',
+  PRIMARY KEY (`folderid`),
+  KEY `IXPATH` (`path`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `folders`
 --
 
-INSERT INTO `folders` VALUES (1,'public','1',0);
+INSERT INTO `folders` VALUES (1,'public',0,1);
 
 --
 -- Table structure for table `groups`
@@ -99,7 +103,7 @@ CREATE TABLE `groups` (
   `master` int(2) DEFAULT '0',
   `member` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`groupid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,12 +130,8 @@ CREATE TABLE `hits` (
   `area` varchar(32) DEFAULT '',
   `query` varchar(255) DEFAULT '',
   `createdate` varchar(255) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `hits`
---
 
 
 --
@@ -149,7 +149,7 @@ CREATE TABLE `images` (
   `href` varchar(255) DEFAULT NULL,
   `dimensions` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`imageid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,7 +170,7 @@ CREATE TABLE `imagestock` (
   `title` varchar(255) DEFAULT NULL,
   `path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`stockid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,7 +195,7 @@ CREATE TABLE `imetadata` (
   `imageid` int(10) unsigned NOT NULL DEFAULT '0',
   `tag` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`imageid`,`tag`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +215,7 @@ CREATE TABLE `ipindex` (
   `author` varchar(255) NOT NULL DEFAULT '',
   `type` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ipaddr`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +234,7 @@ CREATE TABLE `ixfolderrealm` (
   `folderid` int(10) unsigned NOT NULL DEFAULT '0',
   `realmid` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`folderid`,`realmid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -257,7 +257,7 @@ CREATE TABLE `ixusergroup` (
   `linkid` int(10) unsigned NOT NULL DEFAULT '0',
   `groupid` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`indexid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -280,7 +280,7 @@ CREATE TABLE `menus` (
   `realmid` int(10) unsigned NOT NULL DEFAULT '0',
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`menuid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -301,7 +301,7 @@ CREATE TABLE `optimages` (
   `typeid` int(10) unsigned NOT NULL DEFAULT '1',
   `imageid` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`optionid`,`typeid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -323,7 +323,7 @@ CREATE TABLE `options` (
   `text` varchar(255) DEFAULT NULL,
   `href` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`optionid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -343,13 +343,8 @@ CREATE TABLE `prefs_authors` (
   `active` int(2) DEFAULT '0',
   `lastlogin` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`pauseid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `prefs_authors`
---
-
 
 --
 -- Table structure for table `prefs_distributions`
@@ -370,12 +365,8 @@ CREATE TABLE `prefs_distributions` (
   `perl` varchar(1000) DEFAULT 'ALL',
   `platform` varchar(1000) DEFAULT 'ALL',
   PRIMARY KEY (`pauseid`,`distribution`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `prefs_distributions`
---
 
 --
 -- Table structure for table `realms`
@@ -390,7 +381,7 @@ CREATE TABLE `realms` (
   `name` varchar(255) DEFAULT NULL,
   `command` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`realmid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -419,13 +410,8 @@ CREATE TABLE `sessions` (
   `langcode` char(2) NOT NULL DEFAULT 'en',
   `query` blob,
   PRIMARY KEY (`sessionid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7141 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sessions`
---
-
 
 --
 -- Table structure for table `updates`
@@ -441,13 +427,8 @@ CREATE TABLE `updates` (
   `now` int(11) DEFAULT NULL,
   `pagets` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`upid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `updates`
---
-
 
 --
 -- Table structure for table `users`
@@ -468,16 +449,15 @@ CREATE TABLE `users` (
   `aboutme` blob,
   `search` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`userid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` VALUES (1,5,1,'','Barbie','barbie@missbarbell.co.uk','admin','sekret','','');
-INSERT INTO `users` VALUES (2,1,1,'','Guest','GUEST','public','sekret','','');
-INSERT INTO `users` VALUES (3,2,1,'','PAUSE','PAUSE','author','sekret','','');
+INSERT INTO `users` VALUES (1,2,1,'','PAUSE','PAUSE','author','9935dfb5a4d397598918b95cafea8828afe115be','',0);
+INSERT INTO `users` VALUES (2,1,1,'','Guest','GUEST','public','c8d6ea7f8e6850e9ed3b642900ca27683a257201','',0);
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -489,4 +469,4 @@ INSERT INTO `users` VALUES (3,2,1,'','PAUSE','PAUSE','author','sekret','','');
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-05  8:28:33
+-- Dump completed on 2015-02-08 20:15:46
