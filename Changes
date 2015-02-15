@@ -1,6 +1,8 @@
 Changes for the CPAN Testers Preferences website
 ================================================
 
+        - fixed pre-requisites.
+
 0.19    2015-02-10
         - final fix for PAUSE authentication.
         - upgrade to Labyrinth-5.24.
