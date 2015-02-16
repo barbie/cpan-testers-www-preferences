@@ -1,6 +1,6 @@
 {
     "name": "CPAN-Testers-WWW-Preferences",
-    "version": "0.19",
+    "version": "0.20",
     "abstract": "The CPAN Testers Preferences website",
     "author": [
         "Barbie (BARBIE) <barbie@cpan.org>"
@@ -56,11 +56,11 @@
     "provides": {
         "CPAN::Testers::WWW::Preferences": {
             "file": "lib/CPAN/Testers/WWW/Preferences.pm",
-            "version": "0.19"
+            "version": "0.20"
         },
         "Labyrinth::Plugin::CPAN::Preferences": {
             "file": "lib/Labyrinth/Plugin/CPAN/Preferences.pm",
-            "version": "0.19"
+            "version": "0.20"
         }
     },
     "no_index": {
