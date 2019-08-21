@@ -38,7 +38,7 @@ expectations of it's original creators. As a consequence it now requires
 considerable funding to help support the infrastructure.
 
 In early 2012 the Enlightened Perl Organisation very kindly set-up a
-CPAN Testers Fund within their donatation structure, to help the project
+CPAN Testers Fund within their donation structure, to help the project
 cover the costs of servers and services.
 
 If you would like to donate to the CPAN Testers Fund, please follow the link
