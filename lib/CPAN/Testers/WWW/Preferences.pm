@@ -38,13 +38,13 @@ expectations of it's original creators. As a consequence it now requires
 considerable funding to help support the infrastructure.
 
 In early 2012 the Enlightened Perl Organisation very kindly set-up a
-CPAN Testers Fund within their donatation structure, to help the project
+CPAN Testers Fund within their donation structure, to help the project
 cover the costs of servers and services.
 
 If you would like to donate to the CPAN Testers Fund, please follow the link
 below to the Enlightened Perl Organisation's donation site.
 
-F<https://members.enlightenedperl.org/drupal/donate-cpan-testers>
+F<https://ww2.enlightenedperl.org/donate/>
 
 If your company would like to support us, you can donate financially via the
 fund link above, or if you have servers or services that we might use, please
